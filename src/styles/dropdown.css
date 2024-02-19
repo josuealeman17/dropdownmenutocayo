@@ -1,0 +1,158 @@
+/* CUSTOM FONT */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+/* variables css globales */
+:root {
+  --bg: #242526;
+  --bg-1: #d4cccc;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+
+  --speed: 500ms; /*variable que representa la velocidad de la animacion */
+
+  --font-1: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-1);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--bg-1);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-1);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ICONS & SVGS */
+
+.icon-button {
+  --button-size: calc(var(--nav-size) * 0.5);
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+  background-color: #525357;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+.icon-right {
+  margin-top: 0.35rem;
+  margin-left: auto;
+}
+
+.icon-right svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+.menu-item .icon-button {
+  margin-right: 0.7rem;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+/* DROP DOWN */
+
+.dropdown {
+  position: absolute;
+  top: 258px;
+  right: 40%;
+  width: 15%;
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden; /*Oculta los artículos si se superponen en el contenedor*/
+  transition: height var(--speed) ease;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed); /* transicion del color de fondo del dropdown menu */
+  padding: 0.5rem;
+}
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #525357;
+}
+
+/* REACT: CSSTransition */
+
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
